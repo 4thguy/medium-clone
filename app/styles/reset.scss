@@ -1,0 +1,20 @@
+* {
+    display: none;
+}
+
+html,
+body,
+div#cover,
+div#cover .text,
+div#content,
+h1,
+h2,
+h3,
+p,
+hr,
+blockquote,
+figure,
+figure img,
+figure figcaption{
+    display: block;
+}
