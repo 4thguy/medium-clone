@@ -1,31 +1,8 @@
 div#content {
     & figure {
 	//micro, small and medium screens
-	margin-bottom:30px;
-	& img,
-	& figcaption {
-	    max-width: 100%;
-	    margin: auto;
-	}
-	& figcaption {
-	    width: 100%;
-	    margin-top: 10px;
-	    text-align: center;
-	    font-style: italic;
-	    font-size: 15px;
-	    @media print {
-		font-size: 10px;
-	    }
-	}
-	@media (min-width:640px) {
-	    width: 640px;
-	}
-	@media (min-width:768px) {
-	    width: 700px;
-	}
 	@media (min-width:1020px) {
 	    //largest screen
-	    width: 1020px;
 	    position: relative;
 	    & figcaption {
 		position: absolute;
@@ -40,20 +17,21 @@ div#content {
 	&.oversize,
 	&.fill-width  {
 	    //micro, small and medium screens
-	    width: 100%;
 	    & img {
 		width: 100%;
 	    }
 	    //largest screen
 	    @media (min-width:1020px) {
 		& figcaption {
+		    width: 100%;
 		    position: initial;
 		    text-align: center;
 		}
 	    }
 	    //print
 	    @media print {
-		margin: auto;
+		margin-left: auto;
+		margin-right: auto;
 		max-width: 100%;
 		max-height: 100%;
 		& img {
@@ -64,16 +42,9 @@ div#content {
 		}
 	    }
 	}
-	&.oversize {
-	    @media (min-width:1020px) {
-		width: 1020px;
-	    }
-	}
 	&.fill-width {
-	    margin: 80px 0;
-	    @media print {
-		margin: auto;
-	    }
+	    width: 100%;
+	    margin: 80px auto;
 	}
 
 	/* float items */
@@ -99,23 +70,6 @@ div#content {
 		width: calc(50% - ((100% - 700px)/2));
 		margin: 10px calc((100% - 700px)/2);
 	    }
-	    @media (max-width:1019px) {
-		&.expanded {
-		    width: 100%;
-		    margin: 10px auto;
-		    float: none;
-		    @media (min-width: 640px) {
-			width: 640px;
-		    }
-		    @media (min-width: 768px) {
-			width: 700px;
-		    }
-		    & img {
-			max-width: 100%;
-			margin: auto;
-		    }
-		}
-	    }
 	    @media screen and (min-width:1020px) {
 		//largest screen
 		width: 510px;
@@ -132,6 +86,24 @@ div#content {
 			margin: 10px auto;
 			text-align: center;
 			position: relative;
+		    }
+		}
+	    }
+	    &.expanded {
+		//make expanded behave like basic image if screen is medium or less
+		@media (max-width:1019px) {
+		    width: 100%;
+		    margin: 10px auto;
+		    float: none;
+		    @media (min-width: 640px) {
+			width: 640px;
+		    }
+		    @media (min-width: 768px) {
+			width: 700px;
+		    }
+		    & img {
+			max-width: 100%;
+			margin: auto;
 		    }
 		}
 	    }

@@ -25,6 +25,15 @@ blockquote {
 blockquote {
     font-style: italic;
 }
+figure {
+    margin-bottom:30px;
+}
+figcaption {
+    font-size: 15px;
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+}
 
 @media print {
     //font sizes
@@ -40,5 +49,8 @@ blockquote {
     p,
     blockquote {
 	font-size: 14px;
+    }
+    figcaption {
+	font-size: 10px;
     }
 }
