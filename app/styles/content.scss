@@ -1,4 +1,6 @@
 div#content {
+    margin: auto;
+    width: 100%;
     & h1,
     & h2,
     & h3,
@@ -35,14 +37,14 @@ div#content {
 }
 
 div#content {
-    margin: auto;
-    width: 100%;
-
     & h1,
     & h2,
     & h3,
     & p {
 	padding: 0 20px;
+	@media print {
+	    padding: 0;
+	}
 	@media (min-width:640px) {
 	    padding: 0;
 	}
@@ -67,12 +69,16 @@ div#content {
     & p,
     & blockquote {
 	font-size: 22px;
-    }
-    & p {
 	margin-bottom: 30px;
     }
     & blockquote {
+	padding: 0 20px;
 	font-style: italic;
+	@media (min-width:640px) {
+	    position: relative;
+	    left: 10px;
+	    padding: 0 10px;
+	}
     }
     & hr {
 	clear: both;
@@ -83,27 +89,30 @@ div#content {
     div#content {
 	//margins and width
 	margin: auto;
-	width: 100%;
+	width: auto;
 	& h1,
 	& h2,
 	& h3,
 	& p,
 	& blockquote,
 	& figure {
-	    margin-left: auto;
-	    margin-right: auto;
-	    width: 100%;
+	    margin-left: 0;
+	    margin-right: 0;
+	    width: auto;
 	}
 	//page breaks
-	& figure {
-	    page-break-inside: avoid;
-	}
 	& h1,
 	& h2,
 	& h3 {
-	    page-break-after: never;
+	    page-break-after: avoid;
 	}
-	& hr {
+	//page breaks //Mozilla firefox hack
+	@supports (-moz-appearance:meterbar) {
+	    & figure,
+	    & figure img,
+	    & figure figcaption {
+		page-break-inside: avoid;
+	    }
 	}
 	//font sizes
 	& h1 {

@@ -26,6 +26,10 @@ h1,
 h2,
 h3 {
   clear: both; }
+  h1 + p,
+  h2 + p,
+  h3 + p {
+    page-break-before: avoid; }
 
 hr {
   width: 250px; }
@@ -65,8 +69,7 @@ div#cover {
   div#cover {
     page-break-after: always; } }
 div#content h1, div#content h2, div#content h3, div#content p, div#content blockquote, div#content figure {
-  margin: auto;
-  width: 100%; }
+  margin: auto; }
 
 @media (min-width: 640px) {
   div#content h1, div#content h2, div#content h3, div#content p, div#content blockquote, div#content figure {
@@ -74,54 +77,57 @@ div#content h1, div#content h2, div#content h3, div#content p, div#content block
 @media (min-width: 768px) {
   div#content h1, div#content h2, div#content h3, div#content p, div#content blockquote, div#content figure {
     width: 700px; } }
-div#content {
-  margin: auto;
-  width: 100%; }
-  div#content h1, div#content h2, div#content h3, div#content p {
-    padding: 0 20px; }
-    @media (min-width: 640px) {
-      div#content h1, div#content h2, div#content h3, div#content p {
-        padding: 0; } }
-  div#content h1, div#content h2, div#content h3 {
-    text-align: left; }
-  div#content h1 {
-    font-size: 60px;
-    margin: 2px auto 8px auto; }
-  div#content h2 {
-    font-size: 36px;
-    margin-top: 40px; }
-  div#content h3 {
-    font-size: 30px;
-    margin-top: 40px; }
-  div#content p, div#content blockquote {
-    font-size: 22px; }
-  div#content p {
-    margin-bottom: 30px; }
-  div#content blockquote {
-    font-style: italic; }
-  div#content hr {
-    clear: both; }
+div#content h1, div#content h2, div#content h3, div#content p {
+  padding: 0 20px; }
+  @media print {
+    div#content h1, div#content h2, div#content h3, div#content p {
+      padding: 0; } }
+  @media (min-width: 640px) {
+    div#content h1, div#content h2, div#content h3, div#content p {
+      padding: 0; } }
+div#content h1, div#content h2, div#content h3 {
+  text-align: left; }
+div#content h1 {
+  font-size: 60px;
+  margin: 2px auto 8px auto; }
+div#content h2 {
+  font-size: 36px;
+  margin-top: 40px; }
+div#content h3 {
+  font-size: 30px;
+  margin-top: 40px; }
+div#content p, div#content blockquote {
+  font-size: 22px; }
+div#content p {
+  margin-bottom: 30px; }
+div#content blockquote {
+  font-style: italic; }
+div#content hr {
+  clear: both; }
 
 @media print {
-  div#content {
-    margin: auto;
+  div#content h1, div#content h2, div#content h3, div#content p, div#content blockquote, div#content figure {
+    margin-left: auto;
+    margin-right: auto;
     width: 100%; }
-    div#content h1, div#content h2, div#content h3, div#content p, div#content blockquote, div#content figure {
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%; }
-    div#content figure {
-      page-break-inside: avoid; }
-    div#content h1, div#content h2, div#content h3 {
-      page-break-after: never; }
-    div#content h1 {
-      font-size: 38px; }
-    div#content h2 {
-      font-size: 24px; }
-    div#content h3 {
-      font-size: 20px; }
-    div#content p, div#content blockquote {
-      font-size: 14px; } }
+  div#content figure, div#content figure img, div#content figure figcaption {
+    page-break-inside: avoid; }
+  div#content figure {
+    page-break-before: auto;
+    page-break-after: auto; }
+  div#content figure img, div#content figure figcaption {
+    page-break-before: avoid;
+    page-break-after: avoid; }
+  div#content h1, div#content h2, div#content h3 {
+    page-break-after: avoid; }
+  div#content h1 {
+    font-size: 38px; }
+  div#content h2 {
+    font-size: 24px; }
+  div#content h3 {
+    font-size: 20px; }
+  div#content p, div#content blockquote {
+    font-size: 14px; } }
 div#content figure {
   width: 100%;
   margin-bottom: 30px;
@@ -169,35 +175,32 @@ div#content figure {
           text-align: center; }
         div#content figure.oversize.oversize, div#content figure.fill-width.oversize {
           width: 1020px; } }
-    @media print and (orientation: portrait) {
+    @media print {
       div#content figure.oversize, div#content figure.fill-width {
-        width: 100%;
-        height: auto; }
-        div#content figure.oversize img, div#content figure.fill-width img {
-          width: 100%;
-          height: auto; } }
-    @media print and (orientation: landscape) {
-      div#content figure.oversize, div#content figure.fill-width {
-        page-break-before: always;
-        page-break-after: always;
-        width: auto;
-        height: 100%; }
+        margin: auto;
+        max-width: 100%;
+        max-height: 100%; }
         div#content figure.oversize img, div#content figure.fill-width img {
           width: auto;
-          height: calc(100% - 26px); } }
+          height: auto;
+          max-width: 100%;
+          max-height: calc(100% - 26px); } }
   div#content figure.fill-width {
     margin: 80px 0; }
-    @media print {
-      div#content figure.fill-width {
-        margin: 50px 0; } }
   div#content figure.place-left, div#content figure.place-right {
     width: 50%;
     margin: 10px auto; }
-    @media (min-width: 640px) {
+    @media print {
+      div#content figure.place-left, div#content figure.place-right {
+        width: auto;
+        max-width: 50%; }
+        div#content figure.place-left img, div#content figure.place-right img {
+          margin: 0; } }
+    @media screen and (min-width: 640px) {
       div#content figure.place-left, div#content figure.place-right {
         width: calc(50% - ((100% - 640px)/2));
         margin: 10px calc((100% - 640px)/2); } }
-    @media (min-width: 768px) {
+    @media screen and (min-width: 768px) {
       div#content figure.place-left, div#content figure.place-right {
         width: calc(50% - ((100% - 700px)/2));
         margin: 10px calc((100% - 700px)/2); } }
@@ -216,7 +219,7 @@ div#content figure {
         div#content figure.place-left.expanded img, div#content figure.place-right.expanded img {
           max-width: 100%;
           margin: auto; } }
-    @media (min-width: 1020px) {
+    @media screen and (min-width: 1020px) {
       div#content figure.place-left, div#content figure.place-right {
         width: 510px;
         margin: 10px calc((100% - 1020px)/2); }

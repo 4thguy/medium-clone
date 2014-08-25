@@ -1,7 +1,6 @@
 div#content {
     & figure {
 	//micro, small and medium screens
-	width: 100%;
 	margin-bottom:30px;
 	& img,
 	& figcaption {
@@ -42,47 +41,38 @@ div#content {
 	&.fill-width  {
 	    //micro, small and medium screens
 	    width: 100%;
-	    height: 100%;
-	    & img,
-	    & figcaption {
+	    & img {
 		width: 100%;
-		max-width: none;
 	    }
 	    //largest screen
 	    @media (min-width:1020px) {
-		height: auto;
 		& figcaption {
-		    position: relative;
+		    position: initial;
 		    text-align: center;
-		}
-		&.oversize {
-		    width: 1020px;
 		}
 	    }
 	    //print
-	    @media print and (orientation:portrait){
-		width: 100%;
-		height: auto;
-		& img {
-		    width: 100%;
-		    height: auto;
-		}
-	    }
-	    @media print and (orientation:landscape){
-		page-break-before: always;
-		page-break-after: always;
-		width: auto;
-		height: 100%;
+	    @media print {
+		margin: auto;
+		max-width: 100%;
+		max-height: 100%;
 		& img {
 		    width: auto;
-		    height: calc(100% - 26px);
+		    height: auto;
+		    max-width: 100%;
+		    max-height: calc(100% - 26px);
 		}
+	    }
+	}
+	&.oversize {
+	    @media (min-width:1020px) {
+		width: 1020px;
 	    }
 	}
 	&.fill-width {
 	    margin: 80px 0;
 	    @media print {
-		margin: 50px 0;
+		margin: auto;
 	    }
 	}
 
@@ -92,12 +82,19 @@ div#content {
 	    //micro screen
 	    width: 50%;
 	    margin: 10px auto;
-	    @media (min-width: 640px) {
+	    @media print {
+		width: auto;
+		max-width: 50%;
+		& img {
+		    margin: 0;
+		}
+	    }
+	    @media screen and (min-width: 640px) {
 		//small screen
 		width: calc(50% - ((100% - 640px)/2));
 		margin: 10px calc((100% - 640px)/2);
 	    }
-	    @media (min-width: 768px) {
+	    @media screen and (min-width: 768px) {
 		//medium screen
 		width: calc(50% - ((100% - 700px)/2));
 		margin: 10px calc((100% - 700px)/2);
@@ -119,7 +116,7 @@ div#content {
 		    }
 		}
 	    }
-	    @media (min-width:1020px) {
+	    @media screen and (min-width:1020px) {
 		//largest screen
 		width: 510px;
 		margin: 10px calc((100% - 1020px)/2);
