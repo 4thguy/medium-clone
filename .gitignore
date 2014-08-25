@@ -1,4 +1,8 @@
 *~
+.editorconfig
+.gitattributes
+.jshintrc
+app/styles/*.css
 bower_components/
 node_modules/
 nbproject/
