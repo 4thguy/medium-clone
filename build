@@ -1,0 +1,2 @@
+sass app/styles/main.scss:app/styles/medium-clone.css
+sass app/styles/main.scss:app/styles/medium-clone.min.css --style compressed

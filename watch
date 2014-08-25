@@ -1,0 +1,1 @@
+sass --watch app/styles/main.scss:app/styles/medium-clone.css
