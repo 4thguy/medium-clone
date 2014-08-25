@@ -2,6 +2,7 @@ h1,
 h2,
 h3 {
     clear: both;
+    page-break-after: avoid;
     & + p {
 	page-break-before: avoid;
     }

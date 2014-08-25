@@ -1,0 +1,8 @@
+//Mozilla firefox hack
+@supports (-moz-appearance:meterbar) {
+    figure,
+    figure img,
+    figure figcaption {
+	page-break-inside: avoid;
+    }
+}

@@ -1,0 +1,44 @@
+h1,
+h2,
+h3,
+p,
+blockquote {
+    text-align: left;
+}
+h1 {
+    font-size: 60px;
+    margin: 2px auto 8px auto;
+}
+h2 {
+    font-size: 36px;
+    margin-top: 40px;
+}
+h3 {
+    font-size: 30px;
+    margin-top: 40px;
+}
+p,
+blockquote {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+blockquote {
+    font-style: italic;
+}
+
+@media print {
+    //font sizes
+    h1 {
+	font-size: 38px;
+    }
+    h2 {
+	font-size: 24px;
+    }
+    h3 {
+	font-size: 20px;
+    }
+    p,
+    blockquote {
+	font-size: 14px;
+    }
+}
