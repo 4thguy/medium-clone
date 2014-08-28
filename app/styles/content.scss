@@ -42,10 +42,14 @@ div#content {
     & h2,
     & h3,
     & p,
-    & blockquote {
+    & blockquote,
+    & figure {
 	padding: 0 20px;
 	@media print {
 	    padding: 0;
+	    margin-left: 2cm;
+	    margin-right: 2cm;
+	    width: calc(100% - 4cm);
 	}
 	@media screen and (min-width:640px) {
 	    padding: 0;

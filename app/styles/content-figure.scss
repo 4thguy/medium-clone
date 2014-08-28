@@ -91,7 +91,7 @@ div#content {
 	    }
 	    &.expanded {
 		//make expanded behave like basic image if screen is medium or less
-		@media (max-width:1019px) {
+		@media screen and (max-width:1019px) {
 		    width: 100%;
 		    margin: 10px auto;
 		    float: none;
@@ -112,6 +112,12 @@ div#content {
 	&.place-left {
 	    float: left;
 	    margin-right: 30px;
+	    @media print {
+		margin-left: 2cm;
+		&.expanded {
+		    margin-left: 0;
+		}
+	    }
 	    @media (min-width:1020px) {
 		& img {
 		    float: right;
@@ -124,6 +130,12 @@ div#content {
 	&.place-right {
 	    float: right;
 	    margin-left: 30px;
+	    @media print {
+		margin-right: 2cm;
+		&.expanded {
+		    margin-right: 0;
+		}
+	    }
 	    @media (min-width:1020px) {
 		& img {
 		    float: left;
