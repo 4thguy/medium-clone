@@ -156,13 +156,16 @@ div#content {
   @media screen and (min-width: 1020px) {
     div#content figure {
       width: 1020px; } }
-  div#content h1, div#content h2, div#content h3, div#content p, div#content blockquote {
+  div#content h1, div#content h2, div#content h3, div#content p, div#content blockquote, div#content figure {
     padding: 0 20px; }
     @media print {
-      div#content h1, div#content h2, div#content h3, div#content p, div#content blockquote {
-        padding: 0; } }
+      div#content h1, div#content h2, div#content h3, div#content p, div#content blockquote, div#content figure {
+        padding: 0;
+        margin-left: 2cm;
+        margin-right: 2cm;
+        width: calc(100% - 4cm); } }
     @media screen and (min-width: 640px) {
-      div#content h1, div#content h2, div#content h3, div#content p, div#content blockquote {
+      div#content h1, div#content h2, div#content h3, div#content p, div#content blockquote, div#content figure {
         padding: 0; } }
 
 div#content figure {
@@ -227,24 +230,29 @@ div#content figure {
           margin: 10px auto;
           text-align: center;
           position: relative; } }
-    @media (max-width: 1019px) {
+    @media screen and (max-width: 1019px) {
       div#content figure.place-left.expanded, div#content figure.place-right.expanded {
         width: 100%;
         margin: 10px auto;
         float: none; } }
-  @media (max-width: 1019px) and (min-width: 640px) {
+  @media screen and (max-width: 1019px) and (min-width: 640px) {
     div#content figure.place-left.expanded, div#content figure.place-right.expanded {
       width: 640px; } }
-  @media (max-width: 1019px) and (min-width: 768px) {
+  @media screen and (max-width: 1019px) and (min-width: 768px) {
     div#content figure.place-left.expanded, div#content figure.place-right.expanded {
       width: 700px; } }
-    @media (max-width: 1019px) {
+    @media screen and (max-width: 1019px) {
         div#content figure.place-left.expanded img, div#content figure.place-right.expanded img {
           max-width: 100%;
           margin: auto; } }
   div#content figure.place-left {
     float: left;
     margin-right: 30px; }
+    @media print {
+      div#content figure.place-left {
+        margin-left: 2cm; }
+        div#content figure.place-left.expanded {
+          margin-left: 0; } }
     @media (min-width: 1020px) {
       div#content figure.place-left img {
         float: right; }
@@ -253,6 +261,11 @@ div#content figure {
   div#content figure.place-right {
     float: right;
     margin-left: 30px; }
+    @media print {
+      div#content figure.place-right {
+        margin-right: 2cm; }
+        div#content figure.place-right.expanded {
+          margin-right: 0; } }
     @media (min-width: 1020px) {
       div#content figure.place-right img {
         float: left; }
